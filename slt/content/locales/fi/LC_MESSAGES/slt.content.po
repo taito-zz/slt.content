@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-09-19 18:02+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: fi\n"
+"Language-Name: Finnish\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: slt.content\n"
+
+#: ./profiles/default/actions.xml
+msgid "Feed to Shop Top"
+msgstr "Syöte kaupan etusivulle"
+
+#: ./interfaces.py:15
+msgid "Number of Feed on Top"
+msgstr "Kaupan etusivun syötteen määrä"
+
+#: ./profiles/default/actions.xml
+msgid "Unfeed from Shop Top"
+msgstr "Ota syöte poist kaupan etusivusta"
+
+#. Default: "This number of articles will be fed to shop top page in maximum."
+#: ./interfaces.py:16
+msgid "description_number_of_feed_on_top"
+msgstr "Tämä määrä on maksimi syötemäärä kaupan etusivulla."
