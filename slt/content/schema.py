@@ -1,10 +1,11 @@
 from collective.cart import shopping
+from plone.directives import form
 from sll.shopping import _
 from zope import schema
 
 
 class IShop(shopping.interfaces.IShop):
-    """Schema Interface for Shop."""
+    """Schema interface for Shop."""
 
     number_of_feed_on_top = schema.Int(
         title=_('Number of Feed on Top'),
@@ -13,3 +14,7 @@ class IShop(shopping.interfaces.IShop):
             default=u'This number of articles will be fed to shop top page in maximum.'),
         default=6,
         min=0)
+
+
+class IMemberArea(form.Schema):
+    """Schema interface for MemberArea."""
