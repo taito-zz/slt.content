@@ -1,0 +1,16 @@
+<configure
+  i18n_domain="slt.content"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  xmlns="http://namespaces.zope.org/zope">
+
+  <genericsetup:upgradeStep
+    description=""
+    destination="1"
+    handler="slt.content.upgrades.update_typeinfo"
+    profile="slt.content:default"
+    sortkey="1"
+    source="0"
+    title="Adds collective.cart.shopping.CustomerInfo to allowed_content_types of slt.content.MemberArea."
+    />
+
+</configure>
