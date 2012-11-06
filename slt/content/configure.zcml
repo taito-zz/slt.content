@@ -18,4 +18,6 @@
     title="slt.content"
     />
 
+  <include file="upgrades.zcml"/>
+
 </configure>
