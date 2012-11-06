@@ -20,7 +20,7 @@ class TestCase(IntegrationTestCase):
     def test_metadata__version(self):
         setup = getToolByName(self.portal, 'portal_setup')
         self.assertEqual(
-            setup.getVersionForProfile('profile-slt.content:default'), u'0')
+            setup.getVersionForProfile('profile-slt.content:default'), u'1')
 
     def test_metadata__installed__collective_cart_shopping(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
@@ -46,6 +46,155 @@ class TestCase(IntegrationTestCase):
     def test_types_collective_cart_shopping_Shop(self):
         ctype = self.get_ctype('collective.cart.shopping.Shop')
         self.assertFalse(ctype.global_allow)
+
+    def test_types__slt_content_MemberArea__i18n_domain(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertEqual(ctype.i18n_domain, 'slt.content')
+
+    def test_types__slt_content_MemberArea__meta_type(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertEqual(ctype.meta_type, 'Dexterity FTI')
+
+    def test_types__slt_content_MemberArea__title(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertEqual(ctype.title, 'Member Area')
+
+    def test_types__slt_content_MemberArea__description(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertEqual(ctype.description, '')
+
+    def test_types__slt_content_MemberArea__content_icon(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertEqual(ctype.getIcon(), 'group.png')
+
+    def test_types__slt_content_MemberArea__allow_discussion(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertFalse(ctype.allow_discussion)
+
+    def test_types__slt_content_MemberArea__global_allow(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertFalse(ctype.global_allow)
+
+    def test_types__slt_content_MemberArea__filter_content_types(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertTrue(ctype.filter_content_types)
+
+    def test_types__slt_content_MemberArea__allowed_content_types(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertEqual(ctype.allowed_content_types, (
+            'collective.cart.shopping.CustomerInfo',))
+
+    def test_types__slt_content_MemberArea__schema(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertEqual(ctype.schema, 'slt.content.schema.IMemberArea')
+
+    def test_types__slt_content_MemberArea__klass(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertEqual(ctype.klass, 'plone.dexterity.content.Container')
+
+    def test_types__slt_content_MemberArea__add_permission(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertEqual(ctype.add_permission, 'slt.content.AddMemberArea')
+
+    def test_types__slt_content_MemberArea__behaviors(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertEqual(ctype.behaviors,
+            ('plone.app.content.interfaces.INameFromTitle',))
+
+    def test_types__slt_content_MemberArea__default_view(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertEqual(ctype.default_view, 'view')
+
+    def test_types__slt_content_MemberArea__default_view_fallback(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertFalse(ctype.default_view_fallback)
+
+    def test_types__slt_content_MemberArea__view_methods(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertEqual(ctype.view_methods, ('view',))
+
+    def test_types__slt_content_MemberArea__default_aliases(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        self.assertEqual(
+            ctype.default_aliases,
+            {'edit': '@@edit', 'sharing': '@@sharing', '(Default)': '(dynamic view)', 'view': '(selected layout)'})
+
+    def test_types__slt_content_MemberArea__action__view__title(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/view')
+        self.assertEqual(action.title, 'View')
+
+    def test_types__slt_content_MemberArea__action__view__condition(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/view')
+        self.assertEqual(action.condition, '')
+
+    def test_types__slt_content_MemberArea__action__view__url_expr(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/view')
+        self.assertEqual(action.getActionExpression(), 'string:${folder_url}/')
+
+    def test_types__slt_content_MemberArea__action__view__visible(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/view')
+        self.assertTrue(action.visible)
+
+    def test_types__slt_content_MemberArea__action__view__permissions(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/view')
+        self.assertEqual(action.permissions, (u'View',))
+
+    def test_types__slt_content_MemberArea__action__edit__title(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/edit')
+        self.assertEqual(action.title, 'Edit')
+
+    def test_types__slt_content_MemberArea__action__edit__condition(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/edit')
+        self.assertEqual(action.condition, '')
+
+    def test_types__slt_content_MemberArea__action__edit__url_expr(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/edit')
+        self.assertEqual(action.getActionExpression(), 'string:${object_url}/edit')
+
+    def test_types__slt_content_MemberArea__action__edit__visible(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/edit')
+        self.assertTrue(action.visible)
+
+    def test_types__slt_content_MemberArea__action__edit__permissions(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/edit')
+        self.assertEqual(action.permissions, (u'Modify portal content',))
 
     def uninstall_package(self):
         """Uninstall package: slt.content."""
