@@ -35,7 +35,7 @@
     <element value="view"/>
   </property>
 
-  <alias from="(Default)" to="(selected layout)"/>
+  <alias from="(Default)" to="@@view"/>
   <alias from="edit" to="@@edit"/>
   <alias from="view" to="@@view"/>
 
