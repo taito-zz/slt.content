@@ -1,4 +1,3 @@
-from Products.CMFCore.utils import getToolByName
 from five import grok
 from slt.content.interfaces import IMember
 from zope.schema.interfaces import IContextSourceBinder

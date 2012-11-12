@@ -1,5 +1,4 @@
 from collective.cart import shopping
-from collective.cart.shopping.interfaces import ICart
 from collective.cart.shopping.interfaces import IShoppingSite
 from five import grok
 from plone.dexterity.utils import createContentInContainer

@@ -1,10 +1,7 @@
-from Acquisition import aq_chain
-from Acquisition import aq_inner
 from Products.CMFCore.utils import getToolByName
 from collective.cart.shopping.interfaces import ICustomerInfo
 from five import grok
 from slt.content.interfaces import IMember
-from zope.component import getMultiAdapter
 from zope.interface import Interface
 
 

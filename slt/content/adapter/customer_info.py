@@ -1,6 +1,3 @@
-from Acquisition import aq_chain
-from Acquisition import aq_inner
-from Products.CMFCore.utils import getToolByName
 from five import grok
 from slt.content.interfaces import ICustomerInfoBrain
 from zope.interface import Interface
