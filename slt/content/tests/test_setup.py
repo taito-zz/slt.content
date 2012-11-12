@@ -20,7 +20,7 @@ class TestCase(IntegrationTestCase):
     def test_metadata__version(self):
         setup = getToolByName(self.portal, 'portal_setup')
         self.assertEqual(
-            setup.getVersionForProfile('profile-slt.content:default'), u'1')
+            setup.getVersionForProfile('profile-slt.content:default'), u'2')
 
     def test_metadata__installed__collective_cart_shopping(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
@@ -194,6 +194,36 @@ class TestCase(IntegrationTestCase):
         types = getToolByName(self.portal, 'portal_types')
         ctype = types.getTypeInfo('slt.content.MemberArea')
         action = ctype.getActionObject('object/edit')
+        self.assertEqual(action.permissions, (u'Modify portal content',))
+
+    def test_types__slt_content_MemberArea__action__addresses__title(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/addresses')
+        self.assertEqual(action.title, 'Addresses')
+
+    def test_types__slt_content_MemberArea__action__addresses__condition(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/addresses')
+        self.assertEqual(action.condition, '')
+
+    def test_types__slt_content_MemberArea__action__addresses__url_expr(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/addresses')
+        self.assertEqual(action.getActionExpression(), 'string:${folder_url}/@@addresses')
+
+    def test_types__slt_content_MemberArea__action__addresses__visible(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/addresses')
+        self.assertTrue(action.visible)
+
+    def test_types__slt_content_MemberArea__action__addresses__permissions(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('slt.content.MemberArea')
+        action = ctype.getActionObject('object/addresses')
         self.assertEqual(action.permissions, (u'Modify portal content',))
 
     def uninstall_package(self):
