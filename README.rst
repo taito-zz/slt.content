@@ -7,7 +7,7 @@ This package contains content types for SLT shopping site.
 Change log
 ----------
 
-0.2 (2012-11-xx)
+0.2 (2012-11-13)
 ================
 
 - Added upgrade step to add collective.cart.shopping.CustomerInfo
