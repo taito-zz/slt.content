@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-09-19 18:02+0000\n"
+"POT-Creation-Date: 2012-11-26 20:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,19 +14,19 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: slt.content\n"
 
-#: ./profiles/default/actions.xml
-msgid "Feed to Shop Top"
-msgstr "Syöte kaupan etusivulle"
+#: ./profiles/default/types/slt.content.MemberArea.xml
+msgid "Addresses"
+msgstr "Osoite"
 
-#: ./interfaces.py:15
-msgid "Number of Feed on Top"
-msgstr "Kaupan etusivun syötteen määrä"
+#: ./schema.py:11
+msgid "Default Billing Info"
+msgstr "Oletus laskutusosoite"
 
-#: ./profiles/default/actions.xml
-msgid "Unfeed from Shop Top"
-msgstr "Ota syöte poist kaupan etusivusta"
+#: ./schema.py:16
+msgid "Default Shipping Info"
+msgstr "Oletus toimitusosoite"
 
-#. Default: "This number of articles will be fed to shop top page in maximum."
-#: ./interfaces.py:16
-msgid "description_number_of_feed_on_top"
-msgstr "Tämä määrä on maksimi syötemäärä kaupan etusivulla."
+#: ./profiles/default/types/slt.content.MemberArea.xml
+msgid "Member Area"
+msgstr "Jäsenalue"
+

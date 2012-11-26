@@ -1,2 +1,5 @@
 msgid "Addresses"
 msgstr "Osoitteet"
+
+msgid "Member Area"
+msgstr "Jäsenalue"
