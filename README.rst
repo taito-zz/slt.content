@@ -12,6 +12,7 @@ Change log
 
 - Added upgrade step to set global_allow True for collective.cart.core.Artilce.
   [taito]
+- Added testing integration to Travis CI. [taito]
 
 0.2 (2012-11-13)
 ================
