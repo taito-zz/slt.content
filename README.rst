@@ -7,6 +7,12 @@ This package contains content types for SLT shopping site.
 Change log
 ----------
 
+0.3 (2012-11-xx)
+================
+
+- Added upgrade step to set global_allow True for collective.cart.core.Artilce.
+  [taito]
+
 0.2 (2012-11-13)
 ================
 

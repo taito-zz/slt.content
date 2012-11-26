@@ -23,4 +23,14 @@
     title="Reimport typinfo"
     />
 
+  <genericsetup:upgradeStep
+    description="Set global_allow for collective.cart.core.Artilce to True."
+    destination="3"
+    handler="slt.content.upgrades.update_typeinfo"
+    profile="slt.content:default"
+    sortkey="1"
+    source="2"
+    title="Reimport typinfo"
+    />
+
 </configure>

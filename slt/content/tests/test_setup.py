@@ -20,7 +20,7 @@ class TestCase(IntegrationTestCase):
     def test_metadata__version(self):
         setup = getToolByName(self.portal, 'portal_setup')
         self.assertEqual(
-            setup.getVersionForProfile('profile-slt.content:default'), u'2')
+            setup.getVersionForProfile('profile-slt.content:default'), u'3')
 
     def test_metadata__installed__collective_cart_shopping(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
@@ -41,7 +41,7 @@ class TestCase(IntegrationTestCase):
 
     def test_types_collective_cart_core_Article(self):
         ctype = self.get_ctype('collective.cart.core.Article')
-        self.assertFalse(ctype.global_allow)
+        self.assertTrue(ctype.global_allow)
 
     def test_types_collective_cart_shopping_Shop(self):
         ctype = self.get_ctype('collective.cart.shopping.Shop')
