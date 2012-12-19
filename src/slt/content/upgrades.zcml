@@ -6,7 +6,7 @@
   <genericsetup:upgradeStep
     description="Adds collective.cart.shopping.CustomerInfo to allowed_content_types of slt.content.MemberArea."
     destination="1"
-    handler="slt.content.upgrades.update_typeinfo"
+    handler="slt.content.upgrades.reimport_typeinfo"
     profile="slt.content:default"
     sortkey="1"
     source="0"
@@ -16,7 +16,7 @@
   <genericsetup:upgradeStep
     description=""
     destination="2"
-    handler="slt.content.upgrades.update_typeinfo"
+    handler="slt.content.upgrades.reimport_typeinfo"
     profile="slt.content:default"
     sortkey="1"
     source="1"
@@ -26,11 +26,31 @@
   <genericsetup:upgradeStep
     description="Set global_allow for collective.cart.core.Artilce to True."
     destination="3"
-    handler="slt.content.upgrades.update_typeinfo"
+    handler="slt.content.upgrades.reimport_typeinfo"
     profile="slt.content:default"
     sortkey="1"
     source="2"
     title="Reimport typinfo"
+    />
+
+  <genericsetup:upgradeStep
+    description="Update schema for collective.cart.core.Artilce."
+    destination="4"
+    handler="slt.content.upgrades.reimport_typeinfo"
+    profile="slt.content:default"
+    sortkey="1"
+    source="3"
+    title="Reimport typinfo"
+    />
+
+  <genericsetup:upgradeStep
+    description="Add feed_order for index and column."
+    destination="5"
+    handler="slt.content.upgrades.reimport_catalog"
+    profile="slt.content:default"
+    sortkey="1"
+    source="4"
+    title="Reimport catalog"
     />
 
 </configure>

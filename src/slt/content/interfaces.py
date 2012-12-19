@@ -15,14 +15,14 @@ class IMember(Interface):
     default_shipping_info = Attribute('Default shipping info.')
     infos = Attribute('All the address infos.')
 
-    def rest_of_infos(uuid):
+    def rest_of_infos(uuid):  # pragma: no cover
         """All the address infos except for the info with the uuid."""
 
 
 class ICustomerInfoBrain(Interface):
     """Adapter interface for brain of CustomerInfo."""
 
-    def __call__():
+    def __call__():  # pragma: no cover
         """Returns dictionary of easily accessible keys and values."""
 
 

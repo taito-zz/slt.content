@@ -15,7 +15,7 @@ setup(
     keywords='',
     author='Taito Horiuchi',
     author_email='taito.horiuchi@abita.fi',
-    url='http://www.sll.fi/kauppa',
+    url='https://github.com/taito/slt.content',
     license='None-free',
     packages=find_packages('src', exclude=['ez_setup']),
     package_dir={'': 'src'},
@@ -23,7 +23,8 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'Products.CMFPlone>=4.2',
+        'Products.CMFPlone',
+        'abita.utils',
         'collective.cart.shopping',
         'hexagonit.testing',
         'setuptools'],

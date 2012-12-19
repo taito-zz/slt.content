@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+
+  <!-- collective.cart.core.Article -->
+  <column value="feed_order"/>
+
+  <index name="feed_order" meta_type="FieldIndex">
+    <indexed_attr value="feed_order"/>
+  </index>
+
+</object>

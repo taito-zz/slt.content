@@ -17,10 +17,19 @@ class TestCase(IntegrationTestCase):
         from plone.browserlayer import utils
         self.assertIn(ISltContentLayer, utils.registered_layers())
 
+    def test_catalog__column__feed_order(self):
+        catalog = getToolByName(self.portal, 'portal_catalog')
+        self.assertIn('feed_order', catalog.schema())
+
+    def test_catalog__index__feed_order(self):
+        from Products.PluginIndexes.FieldIndex.FieldIndex import FieldIndex
+        catalog = getToolByName(self.portal, 'portal_catalog')
+        self.assertIsInstance(catalog.Indexes['feed_order'], FieldIndex)
+
     def test_metadata__version(self):
         setup = getToolByName(self.portal, 'portal_setup')
         self.assertEqual(
-            setup.getVersionForProfile('profile-slt.content:default'), u'3')
+            setup.getVersionForProfile('profile-slt.content:default'), u'5')
 
     def test_metadata__installed__collective_cart_shopping(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
@@ -39,9 +48,13 @@ class TestCase(IntegrationTestCase):
         ctype = self.get_ctype('ShippingMethod')
         self.assertFalse(ctype.global_allow)
 
-    def test_types_collective_cart_core_Article(self):
+    def test_types_collective_cart_core_Article__global_allow(self):
         ctype = self.get_ctype('collective.cart.core.Article')
         self.assertTrue(ctype.global_allow)
+
+    def test_types_collective_cart_core_Article__schema(self):
+        ctype = self.get_ctype('collective.cart.core.Article')
+        self.assertEqual(ctype.schema, 'slt.content.schema.IArticleSchema')
 
     def test_types_collective_cart_shopping_Shop(self):
         ctype = self.get_ctype('collective.cart.shopping.Shop')

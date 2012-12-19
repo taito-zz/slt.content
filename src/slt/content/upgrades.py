@@ -1,16 +1,17 @@
 from Products.CMFCore.utils import getToolByName
-
-import logging
+from abita.utils.utils import reimport_profile
 
 
 PROFILE_ID = 'profile-slt.content:default'
 
 
-def update_typeinfo(context, logger=None):
-    """Update typeinfo"""
-    if logger is None:
-        logger = logging.getLogger(__name__)
-    setup = getToolByName(context, 'portal_setup')
-    logger.info('Reimporting typeinfo.')
-    setup.runImportStepFromProfile(
-        PROFILE_ID, 'typeinfo', run_dependencies=False, purge_old=False)
+def reimport_typeinfo(context):
+    """Reimport typeinfo"""
+    reimport_profile(context, PROFILE_ID, 'typeinfo')
+
+
+def reimport_catalog(context):
+    """Reimport catalog"""
+    reimport_profile(context, PROFILE_ID, 'catalog')
+    catalog = getToolByName(context, 'portal_catalog')
+    catalog.clearFindAndRebuild()
