@@ -7,6 +7,11 @@ This package contains content types for SLT shopping site.
 Change log
 ----------
 
+0.4 (2012-12-20)
+================
+
+- Added field: feed_order to content type: collective.cart.core.Artilce for ordering top page feed. [taito]
+
 0.3 (2012-11-26)
 ================
 
