@@ -3,3 +3,6 @@ msgstr "Osoitteet"
 
 msgid "Member Area"
 msgstr "Jäsenalue"
+
+msgid "Orders"
+msgstr "Tilaukset"

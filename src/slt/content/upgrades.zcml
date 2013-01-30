@@ -53,4 +53,24 @@
     title="Reimport catalog"
     />
 
+  <genericsetup:upgradeStep
+    description=""
+    destination="6"
+    handler="slt.content.upgrades.reimport_rolemap"
+    profile="slt.content:default"
+    sortkey="1"
+    source="5"
+    title="Reimport rolemap"
+    />
+
+  <genericsetup:upgradeStep
+    description=""
+    destination="7"
+    handler="slt.content.upgrades.reimport_typeinfo"
+    profile="slt.content:default"
+    sortkey="1"
+    source="6"
+    title="Reimport typinfo"
+    />
+
 </configure>

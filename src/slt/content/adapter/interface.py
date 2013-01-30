@@ -38,15 +38,16 @@ class Member(grok.Adapter):
     @property
     def infos(self):
         """All the address infos."""
-        catalog = getToolByName(self.context, 'portal_catalog')
-        query = {
-            'object_provides': ICustomerInfo.__identifier__,
-            'path': {
-                'query': '/'.join(self.area.getPhysicalPath()),
-                'depth': 1,
+        if self.area:
+            catalog = getToolByName(self.context, 'portal_catalog')
+            query = {
+                'object_provides': ICustomerInfo.__identifier__,
+                'path': {
+                    'query': '/'.join(self.area.getPhysicalPath()),
+                    'depth': 1,
+                }
             }
-        }
-        return catalog(query)
+            return catalog(query)
 
     def rest_of_infos(self, uuid):
         """All the address infos except for the info with the uuid."""

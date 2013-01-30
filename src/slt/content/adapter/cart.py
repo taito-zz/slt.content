@@ -30,7 +30,3 @@ class CartAdapter(shopping.adapter.cart.CartAdapter):
                     IShoppingSite(self.context).cart, 'collective.cart.shopping.CustomerInfo', id=name,
                     checkConstraints=False, **data)
                 modified(info)
-
-    def add_addresses(self):
-        self.add_address('billing')
-        self.add_address('shipping')

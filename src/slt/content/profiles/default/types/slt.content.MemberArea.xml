@@ -35,13 +35,13 @@
     <element value="view"/>
   </property>
 
-  <action title="View" action_id="view" category="object" condition_expr=""
+  <action title="Orders" action_id="view" category="object" condition_expr=""
       url_expr="string:${folder_url}/" visible="True">
     <permission value="View"/>
   </action>
   <action title="Edit" action_id="edit" category="object" condition_expr=""
       url_expr="string:${object_url}/edit" visible="True">
-    <permission value="Modify portal content"/>
+    <permission value="slt.content: Edit Member Area"/>
   </action>
 
   <action

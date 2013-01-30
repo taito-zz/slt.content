@@ -7,6 +7,11 @@ This package contains content types for SLT shopping site.
 Change log
 ----------
 
+0.5 (2013-01-30)
+================
+
+- Updated permission to edit Member Area. [taito]
+
 0.4 (2012-12-20)
 ================
 

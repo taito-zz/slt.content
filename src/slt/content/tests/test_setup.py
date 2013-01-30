@@ -1,4 +1,5 @@
 from Products.CMFCore.utils import getToolByName
+from abita.utils.utils import get_roles
 from slt.content.tests.base import IntegrationTestCase
 
 
@@ -29,11 +30,21 @@ class TestCase(IntegrationTestCase):
     def test_metadata__version(self):
         setup = getToolByName(self.portal, 'portal_setup')
         self.assertEqual(
-            setup.getVersionForProfile('profile-slt.content:default'), u'5')
+            setup.getVersionForProfile('profile-slt.content:default'), u'7')
 
     def test_metadata__installed__collective_cart_shopping(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.failUnless(installer.isProductInstalled('collective.cart.shopping'))
+
+    def test_rolemap__slt_content_Edit_Member_Area__rolesOfPermission(self):
+        permission = "slt.content: Edit Member Area"
+        self.assertEqual(get_roles(self.portal, permission), [
+            'Manager',
+            'Site Administrator'])
+
+    def test_rolemap__slt_content_Edit_Member_Area__acquiredRolesAreUsedBy(self):
+        permission = "slt.content: Edit Member Area"
+        self.assertEqual(self.portal.acquiredRolesAreUsedBy(permission), '')
 
     def get_ctype(self, name):
         """Returns content type info.
@@ -153,7 +164,7 @@ class TestCase(IntegrationTestCase):
         types = getToolByName(self.portal, 'portal_types')
         ctype = types.getTypeInfo('slt.content.MemberArea')
         action = ctype.getActionObject('object/view')
-        self.assertEqual(action.title, 'View')
+        self.assertEqual(action.title, 'Orders')
 
     def test_types__slt_content_MemberArea__action__view__condition(self):
         types = getToolByName(self.portal, 'portal_types')
@@ -207,7 +218,7 @@ class TestCase(IntegrationTestCase):
         types = getToolByName(self.portal, 'portal_types')
         ctype = types.getTypeInfo('slt.content.MemberArea')
         action = ctype.getActionObject('object/edit')
-        self.assertEqual(action.permissions, (u'Modify portal content',))
+        self.assertEqual(action.permissions, (u'slt.content: Edit Member Area',))
 
     def test_types__slt_content_MemberArea__action__addresses__title(self):
         types = getToolByName(self.portal, 'portal_types')

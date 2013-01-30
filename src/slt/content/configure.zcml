@@ -11,6 +11,11 @@
   <grok:grok package="." />
   <i18n:registerTranslations directory="locales" />
 
+  <permission
+    id="slt.content.EditMemberArea"
+    title="slt.content: Edit Member Area"
+    />
+
   <genericsetup:registerProfile
     description="Installs the slt.content package"
     directory="profiles/default"
