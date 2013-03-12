@@ -6,9 +6,6 @@ from slt.content.tests.base import IntegrationTestCase
 class TestCase(IntegrationTestCase):
     """TestCase for Plone setup."""
 
-    def setUp(self):
-        self.portal = self.layer['portal']
-
     def test_installed__package(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
         self.assertTrue(installer.isProductInstalled('slt.content'))

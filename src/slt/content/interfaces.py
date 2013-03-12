@@ -1,4 +1,4 @@
-from collective.cart import shopping
+# from collective.cart import shopping
 from zope.interface import Attribute
 from zope.interface import Interface
 
@@ -19,12 +19,12 @@ class IMember(Interface):
         """All the address infos except for the info with the uuid."""
 
 
-class ICustomerInfoBrain(Interface):
-    """Adapter interface for brain of CustomerInfo."""
+# class ICustomerInfoBrain(Interface):
+#     """Adapter interface for brain of CustomerInfo."""
 
-    def __call__():  # pragma: no cover
-        """Returns dictionary of easily accessible keys and values."""
+#     def __call__():  # pragma: no cover
+#         """Returns dictionary of easily accessible keys and values."""
 
 
-class ICartAdapter(shopping.interfaces.ICartAdapter):
-    """Adapter interface for Cart."""
+# class ICartAdapter(shopping.interfaces.ICartAdapter):
+#     """Adapter interface for Cart."""

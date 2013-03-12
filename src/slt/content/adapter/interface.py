@@ -1,14 +1,14 @@
 from Products.CMFCore.utils import getToolByName
+from collective.base.adapter import Adapter
 from collective.cart.shopping.interfaces import ICustomerInfo
 from five import grok
 from slt.content.interfaces import IMember
-from zope.interface import Interface
+# from zope.interface import Interface
 
 
-class Member(grok.Adapter):
-    """Adapter interface for member related."""
+class Member(Adapter):
+    """Member related adapter"""
 
-    grok.context(Interface)
     grok.provides(IMember)
 
     @property
@@ -21,33 +21,20 @@ class Member(grok.Adapter):
     def default_billing_info(self):
         """Default billing info."""
         if self.area.default_billing_info:
-            catalog = getToolByName(self.context, 'portal_catalog')
-            brains = catalog(UID=self.area.default_billing_info)
-            if brains:
-                return brains[0]
+            return self.get_brain(UID=self.area.default_billing_info)
 
     @property
     def default_shipping_info(self):
         """Default shipping info."""
         if self.area.default_shipping_info:
-            catalog = getToolByName(self.context, 'portal_catalog')
-            brains = catalog(UID=self.area.default_shipping_info)
-            if brains:
-                return brains[0]
+            return self.get_brain(UID=self.area.default_shipping_info)
 
     @property
     def infos(self):
         """All the address infos."""
         if self.area:
-            catalog = getToolByName(self.context, 'portal_catalog')
-            query = {
-                'object_provides': ICustomerInfo.__identifier__,
-                'path': {
-                    'query': '/'.join(self.area.getPhysicalPath()),
-                    'depth': 1,
-                }
-            }
-            return catalog(query)
+            path = '/'.join(self.area.getPhysicalPath())
+            return self.get_brains(ICustomerInfo, path=path, depth=1)
 
     def rest_of_infos(self, uuid):
         """All the address infos except for the info with the uuid."""

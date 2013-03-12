@@ -23,7 +23,6 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'Products.CMFPlone',
         'abita.utils',
         'collective.cart.shopping',
         'hexagonit.testing',

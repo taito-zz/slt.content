@@ -4,10 +4,7 @@ import mock
 
 
 class TestCase(IntegrationTestCase):
-    """TestCase for upgrade steps."""
-
-    def setUp(self):
-        self.portal = self.layer['portal']
+    """TestCase for upgrade steps"""
 
     @mock.patch('slt.content.upgrades.getToolByName')
     @mock.patch('slt.content.upgrades.reimport_profile')

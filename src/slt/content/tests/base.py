@@ -1,3 +1,4 @@
+from collective.cart.shopping.tests.base import IntegrationTestCase as BaseIntegrationTestCase
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
@@ -37,7 +38,7 @@ FUNCTIONAL_TESTING = FunctionalTesting(
     bases=(FIXTURE,), name="SltContentLayer:Functional")
 
 
-class IntegrationTestCase(unittest.TestCase):
+class IntegrationTestCase(BaseIntegrationTestCase):
     """Base class for integration tests."""
 
     layer = INTEGRATION_TESTING
