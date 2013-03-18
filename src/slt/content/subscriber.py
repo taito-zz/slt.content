@@ -1,7 +1,6 @@
 from collective.cart.shopping.interfaces import IBillingAddressConfirmedEvent
-# from collective.cart.shopping.interfaces import ICartAdapter
-from collective.cart.shopping.interfaces import IShoppingSite
 from collective.cart.shopping.interfaces import IShippingAddressConfirmedEvent
+from collective.cart.shopping.interfaces import IShoppingSite
 from five import grok
 from plone.dexterity.utils import createContentInContainer
 from slt.content.interfaces import IMember
