@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-12 14:41+0000\n"
+"POT-Creation-Date: 2013-03-18 06:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,25 +19,25 @@ msgstr ""
 
 #: ./profiles/default/types/slt.content.MemberArea.xml
 msgid "Addresses"
-msgstr "Osoitteet"
+msgstr ""
 
 #: ./schema.py:12
 msgid "Default Billing Info"
-msgstr "Oletuslaskutustieto"
+msgstr ""
 
 #: ./schema.py:17
 msgid "Default Shipping Info"
-msgstr "Oletustoimitustieto"
+msgstr ""
 
 #: ./schema.py:25
 msgid "Feed Order"
-msgstr "Feedin järjestysnumero"
+msgstr ""
 
 #: ./profiles/default/types/slt.content.MemberArea.xml
 msgid "Member Area"
-msgstr "Käyttäjä-alue"
+msgstr ""
 
 #: ./schema.py:26
 msgid "Order number for top page feed."
-msgstr "Etusivun feeding järjestys."
+msgstr ""
 

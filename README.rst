@@ -4,8 +4,14 @@ slt.content
 
 This package contains content types for SLT shopping site.
 
-Change log
-----------
+Changelog
+---------
+
+0.7 (2013-03-18)
+================
+
+- Covered tests. [taito]
+- Tested with Plone-4.2.5. [taito]
 
 0.6.1 (2013-03-12)
 ==================

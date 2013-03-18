@@ -3,7 +3,6 @@ from collective.base.adapter import Adapter
 from collective.cart.shopping.interfaces import ICustomerInfo
 from five import grok
 from slt.content.interfaces import IMember
-# from zope.interface import Interface
 
 
 class Member(Adapter):
