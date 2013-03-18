@@ -1,8 +1,24 @@
 from Products.CMFCore.utils import getToolByName
 from collective.base.adapter import Adapter
+from collective.cart.shopping.adapter.interface import ShoppingSite as BaseShoppingSite
 from collective.cart.shopping.interfaces import ICustomerInfo
 from five import grok
 from slt.content.interfaces import IMember
+
+
+class ShoppingSite(BaseShoppingSite):
+    """Adapter for shopping site"""
+
+    def link_to_order_for_customer(self, number):
+        """Link to order for customer
+
+        :param number: Cart ID
+        :type number: int
+
+        :rtype: str
+        """
+        membership = getToolByName(self.context, 'portal_membership')
+        return '{}?order_number={}'.format(membership.getHomeUrl(), number)
 
 
 class Member(Adapter):

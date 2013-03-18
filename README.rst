@@ -7,6 +7,11 @@ This package contains content types for SLT shopping site.
 Changelog
 ---------
 
+0.8 (2013-03-18)
+================
+
+- Overrode method: link_to_order_for_customer of adapter ShoppingMethod from package: collective.cart.shopping. [taito]
+
 0.7 (2013-03-18)
 ================
 
