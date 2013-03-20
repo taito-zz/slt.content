@@ -7,6 +7,11 @@ This package contains content types for SLT shopping site.
 Changelog
 ---------
 
+0.9 (2013-03-20)
+================
+
+- Specified adaptable context to ICart to avoid conflict error. [taito]
+
 0.8 (2013-03-18)
 ================
 

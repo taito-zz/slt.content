@@ -1,6 +1,7 @@
 from Products.CMFCore.utils import getToolByName
 from collective.base.adapter import Adapter
 from collective.cart.shopping.adapter.interface import ShoppingSite as BaseShoppingSite
+from collective.cart.shopping.interfaces import ICart
 from collective.cart.shopping.interfaces import ICustomerInfo
 from five import grok
 from slt.content.interfaces import IMember
@@ -8,6 +9,7 @@ from slt.content.interfaces import IMember
 
 class ShoppingSite(BaseShoppingSite):
     """Adapter for shopping site"""
+    grok.context(ICart)
 
     def link_to_order_for_customer(self, number):
         """Link to order for customer
