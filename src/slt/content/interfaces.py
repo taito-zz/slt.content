@@ -1,4 +1,4 @@
-# from collective.cart import shopping
+from plone.dexterity.interfaces import IDexterityContainer
 from zope.interface import Attribute
 from zope.interface import Interface
 
@@ -19,12 +19,7 @@ class IMember(Interface):
         """All the address infos except for the info with the uuid."""
 
 
-# class ICustomerInfoBrain(Interface):
-#     """Adapter interface for brain of CustomerInfo."""
+class ICart(IDexterityContainer):
+    """Interface for content type: collective.cart.core.Cart"""
 
-#     def __call__():  # pragma: no cover
-#         """Returns dictionary of easily accessible keys and values."""
-
-
-# class ICartAdapter(shopping.interfaces.ICartAdapter):
-#     """Adapter interface for Cart."""
+    registration_number = Attribute('Registration number for the purchaser')

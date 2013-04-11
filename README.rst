@@ -7,6 +7,12 @@ This package contains content types for SLT shopping site.
 Changelog
 ---------
 
+0.10 (2013-04-11)
+=================
+
+- Moved test packaged to extras_require. [taito]
+- Added attribute: registration_number to content type: collective.cart.core.Cart. [taito]
+
 0.9 (2013-03-20)
 ================
 

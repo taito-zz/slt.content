@@ -25,8 +25,8 @@ setup(
     install_requires=[
         'abita.utils',
         'collective.cart.shopping',
-        'hexagonit.testing',
         'setuptools'],
+    extras_require={'test': ['mock', 'plone.app.testing']},
     entry_points="""
     # -*- Entry points: -*-
 
