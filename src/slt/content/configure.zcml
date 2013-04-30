@@ -1,14 +1,12 @@
 <configure
   i18n_domain="slt.content"
-  xmlns:five="http://namespaces.zope.org/five"
   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
-  xmlns:grok="http://namespaces.zope.org/grok"
   xmlns:i18n="http://namespaces.zope.org/i18n"
   xmlns="http://namespaces.zope.org/zope">
 
   <include package="collective.cart.shopping" />
+  <include package=".adapter" />
   <include file="upgrades.zcml"/>
-  <grok:grok package="." />
   <i18n:registerTranslations directory="locales" />
 
   <permission
@@ -22,6 +20,14 @@
     name="default"
     provides="Products.GenericSetup.interfaces.EXTENSION"
     title="slt.content"
+    />
+
+  <subscriber handler=".subscriber.add_billing_info_to_address_book_for_the_first_time" />
+  <subscriber handler=".subscriber.add_shipping_info_to_address_book_for_the_first_time" />
+
+  <utility
+    component=".vocabulary.AddressVocabularyFactory"
+    name="slt.content.address"
     />
 
 </configure>

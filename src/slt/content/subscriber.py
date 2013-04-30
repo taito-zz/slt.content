@@ -1,13 +1,13 @@
 from collective.cart.shopping.interfaces import IBillingAddressConfirmedEvent
 from collective.cart.shopping.interfaces import IShippingAddressConfirmedEvent
 from collective.cart.shopping.interfaces import IShoppingSite
-from five import grok
 from plone.dexterity.utils import createContentInContainer
 from slt.content.interfaces import IMember
+from zope.component import adapter
 from zope.lifecycleevent import modified
 
 
-@grok.subscribe(IBillingAddressConfirmedEvent)
+@adapter(IBillingAddressConfirmedEvent)
 def add_billing_info_to_address_book_for_the_first_time(event):
     member = IMember(event.context)
     if member.area and not member.infos:
@@ -22,7 +22,7 @@ def add_billing_info_to_address_book_for_the_first_time(event):
         modified(info)
 
 
-@grok.subscribe(IShippingAddressConfirmedEvent)
+@adapter(IShippingAddressConfirmedEvent)
 def add_shipping_info_to_address_book_for_the_first_time(event):
     member = IMember(event.context)
     if member.area and not member.default_shipping_info:

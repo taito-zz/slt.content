@@ -19,8 +19,8 @@
   </property>
 
   <!-- Schema, class and security -->
-  <property name="schema">slt.content.schema.IMemberArea</property>
-  <property name="klass">plone.dexterity.content.Container</property>
+  <property name="schema">slt.content.schema.MemberAreaSchema</property>
+  <property name="klass">slt.content.content.MemberArea</property>
   <property name="add_permission">slt.content.AddMemberArea</property>
 
   <!-- enabled behaviors -->

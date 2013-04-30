@@ -12,12 +12,13 @@ class MemberTestCase(IntegrationTestCase):
         from collective.base.adapter import Adapter
         self.assertTrue(issubclass(Member, Adapter))
 
-    def test_provides(self):
-        self.assertEqual(getattr(Member, 'grokcore.component.directive.provides'), IMember)
+    def test_verifyObject(self):
+        from zope.interface.verify import verifyObject
+        self.assertTrue(verifyObject(IMember, IMember(self.portal)))
 
     @mock.patch('slt.content.adapter.interface.getToolByName')
     def test_area(self, getToolByName):
-        IMember(self.portal).area
+        IMember(self.portal).area()
         self.assertTrue(getToolByName().getHomeFolder.called)
 
     @mock.patch('slt.content.adapter.interface.getToolByName')
@@ -25,7 +26,7 @@ class MemberTestCase(IntegrationTestCase):
         adapter = IMember(self.portal)
         getToolByName().getHomeFolder().default_billing_info = 'uuid'
         adapter.get_brain = mock.Mock()
-        adapter.default_billing_info
+        adapter.default_billing_info()
         adapter.get_brain.assert_called_with(UID='uuid')
 
     @mock.patch('slt.content.adapter.interface.getToolByName')
@@ -33,7 +34,7 @@ class MemberTestCase(IntegrationTestCase):
         adapter = IMember(self.portal)
         getToolByName().getHomeFolder().default_shipping_info = 'uuid'
         adapter.get_brain = mock.Mock()
-        adapter.default_shipping_info
+        adapter.default_shipping_info()
         adapter.get_brain.assert_called_with(UID='uuid')
 
     @mock.patch('slt.content.adapter.interface.getToolByName')
@@ -42,7 +43,7 @@ class MemberTestCase(IntegrationTestCase):
         adapter = IMember(self.portal)
         getToolByName().getHomeFolder().getPhysicalPath.return_value = ['', 'path']
         adapter.get_brains = mock.Mock()
-        adapter.infos
+        adapter.infos()
         adapter.get_brains.assert_called_with(ICustomerInfo, path='/path', depth=1)
 
     @mock.patch('slt.content.adapter.interface.getToolByName')

@@ -7,6 +7,11 @@ This package contains content types for SLT shopping site.
 Changelog
 ---------
 
+0.11 (2013-04-30)
+=================
+
+- Removed dependency from five.grok. [taito]
+
 0.10 (2013-04-11)
 =================
 

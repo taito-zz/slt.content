@@ -2,70 +2,86 @@ from Products.CMFCore.utils import getToolByName
 from collective.base.adapter import Adapter
 from collective.cart.core.interfaces import IShoppingSiteRoot
 from collective.cart.shopping.adapter.interface import ShoppingSite as BaseShoppingSite
-from collective.cart.shopping.interfaces import ICart
 from collective.cart.shopping.interfaces import ICustomerInfo
-from five import grok
+from collective.cart.shopping.interfaces import IShoppingSite
 from slt.content.interfaces import IMember
+from slt.content.interfaces import IOrder
+from zope.component import adapts
+from zope.interface import implements
 
 
-class CartShoppingSite(BaseShoppingSite):
-    """Adapter for interface: ICart"""
-    grok.context(ICart)
+class OrderShoppingSite(BaseShoppingSite):
+    """Adapter for content type: collective.cart.core.Order"""
+    adapts(IOrder)
+    implements(IShoppingSite)
 
-    def link_to_order_for_customer(self, number):
-        """Link to order for customer
+    def link_to_order(self, order_id):
+        """Returns link to order
 
-        :param number: Cart ID
-        :type number: int
+        :param order_id: Order ID
+        :type order_id: str
 
         :rtype: str
         """
         membership = getToolByName(self.context, 'portal_membership')
-        return '{}?order_number={}'.format(membership.getHomeUrl(), number)
+        return '{}?order_number={}'.format(membership.getHomeUrl(), order_id)
 
 
 class RootShoppingSite(BaseShoppingSite):
-    """Adapter for interface IShoppingSiteRoot"""
-    grok.context(IShoppingSiteRoot)
+    """Adapter for content type providing interface: IShoppingSiteRoot"""
+    adapts(IShoppingSiteRoot)
 
-    def create_cart(self, cart_id=None):
-        """Create cart"""
-        cart = super(RootShoppingSite, self).create_cart(cart_id=cart_id)
-        if cart is not None:
-            cart.registration_number = self.cart.get('registration_number')
-        return cart
+    def create_order(self, order_id=None):
+        """Create order into order container from cart
+
+        :rtype: collective.cart.core.Order
+        """
+        order = super(RootShoppingSite, self).create_order(order_id=order_id)
+        if order is not None:
+            order.registration_number = self.cart().get('registration_number')
+        return order
 
 
 class Member(Adapter):
     """Member related adapter"""
+    implements(IMember)
 
-    grok.provides(IMember)
-
-    @property
     def area(self):
-        """MemberArea content type for member."""
+        """Returns content type: slt.content.MemberArea
+
+        :rtype: slt.content.MemberArea
+        """
         membership = getToolByName(self.context, 'portal_membership')
         return membership.getHomeFolder()
 
-    @property
     def default_billing_info(self):
-        """Default billing info."""
-        if self.area.default_billing_info:
-            return self.get_brain(UID=self.area.default_billing_info)
+        """Returns brain of default billing info
 
-    @property
+        :rtype: brain
+        """
+        if self.area().default_billing_info:
+            return self.get_brain(UID=self.area().default_billing_info)
+
     def default_shipping_info(self):
-        """Default shipping info."""
-        if self.area.default_shipping_info:
-            return self.get_brain(UID=self.area.default_shipping_info)
+        """Returns brain of default shipping info
 
-    @property
+        :rtype: brain
+        """
+        if self.area().default_shipping_info:
+            return self.get_brain(UID=self.area().default_shipping_info)
+
     def infos(self):
-        """All the address infos."""
-        if self.area:
-            path = '/'.join(self.area.getPhysicalPath())
+        """Returns brains of all the address infos
+
+        :rtype: brains
+        """
+        if self.area():
+            path = '/'.join(self.area().getPhysicalPath())
             return self.get_brains(ICustomerInfo, path=path, depth=1)
 
     def rest_of_infos(self, uuid):
-        """All the address infos except for the info with the uuid."""
-        return [info for info in self.infos if info.UID != uuid]
+        """Returns brains of all the address infos except for the info with the uuid
+
+        :rtype: brains
+        """
+        return [info for info in self.infos() if info.UID != uuid]

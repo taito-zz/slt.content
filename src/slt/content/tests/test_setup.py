@@ -62,7 +62,12 @@ class TestCase(IntegrationTestCase):
 
     def test_types_collective_cart_core_Article__schema(self):
         ctype = self.get_ctype('collective.cart.core.Article')
-        self.assertEqual(ctype.schema, 'slt.content.schema.IArticleSchema')
+        self.assertEqual(ctype.schema, 'slt.content.schema.ArticleSchema')
+
+    def test_types__collective_cart_core_Article__klass(self):
+        types = getToolByName(self.portal, 'portal_types')
+        ctype = types.getTypeInfo('collective.cart.core.Article')
+        self.assertEqual(ctype.klass, 'slt.content.content.Article')
 
     def test_types_collective_cart_shopping_Shop(self):
         ctype = self.get_ctype('collective.cart.shopping.Shop')
@@ -117,12 +122,12 @@ class TestCase(IntegrationTestCase):
     def test_types__slt_content_MemberArea__schema(self):
         types = getToolByName(self.portal, 'portal_types')
         ctype = types.getTypeInfo('slt.content.MemberArea')
-        self.assertEqual(ctype.schema, 'slt.content.schema.IMemberArea')
+        self.assertEqual(ctype.schema, 'slt.content.schema.MemberAreaSchema')
 
     def test_types__slt_content_MemberArea__klass(self):
         types = getToolByName(self.portal, 'portal_types')
         ctype = types.getTypeInfo('slt.content.MemberArea')
-        self.assertEqual(ctype.klass, 'plone.dexterity.content.Container')
+        self.assertEqual(ctype.klass, 'slt.content.content.MemberArea')
 
     def test_types__slt_content_MemberArea__add_permission(self):
         types = getToolByName(self.portal, 'portal_types')

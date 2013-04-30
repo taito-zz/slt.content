@@ -2,9 +2,9 @@
 <object
   i18n:domain="collective.cart.core"
   meta_type="Dexterity FTI"
-  name="collective.cart.core.Cart"
+  name="collective.cart.core.Order"
   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
 
-  <property name="klass">slt.content.cart.Cart</property>
+  <property name="klass">slt.content.content.Order</property>
 
 </object>

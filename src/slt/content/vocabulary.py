@@ -1,13 +1,17 @@
-from five import grok
 from slt.content.interfaces import IMember
-from zope.schema.interfaces import IContextSourceBinder
+from zope.interface import implements
+from zope.schema.interfaces import IVocabularyFactory
 from zope.schema.vocabulary import SimpleVocabulary
 
 
-@grok.provider(IContextSourceBinder)
-def infos(context):
-    terms = []
-    for brain in IMember(context).infos:
-        info = u'{} {}: {}'.format(brain.first_name, brain.last_name, brain.street)
-        terms.append(SimpleVocabulary.createTerm(info, str(brain.UID), info))
-    return SimpleVocabulary(terms)
+class AddressVocabulary(object):
+    implements(IVocabularyFactory)
+
+    def __call__(self, context):
+        terms = []
+        for brain in IMember(context).infos():
+            info = u'{} {}: {}'.format(brain.first_name, brain.last_name, brain.street)
+            terms.append(SimpleVocabulary.createTerm(info, str(brain.UID), info))
+        return SimpleVocabulary(terms)
+
+AddressVocabularyFactory = AddressVocabulary()

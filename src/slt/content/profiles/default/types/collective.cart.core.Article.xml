@@ -8,6 +8,7 @@
   <!-- Hierarchy control -->
   <property name="global_allow">True</property>
 
-  <property name="schema">slt.content.schema.IArticleSchema</property>
+  <property name="schema">slt.content.schema.ArticleSchema</property>
+  <property name="klass">slt.content.content.Article</property>
 
 </object>
