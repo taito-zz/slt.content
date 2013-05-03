@@ -7,6 +7,11 @@ This package contains content types for SLT shopping site.
 Changelog
 ---------
 
+0.12 (2013-05-03)
+=================
+
+- Added upgrade step. [taito]
+
 0.11 (2013-04-30)
 =================
 
