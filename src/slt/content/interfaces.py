@@ -28,6 +28,11 @@ class IOrder(IBaseOrder):
     registration_number = Attribute('Registration number for the purchaser')
 
 
+# Deprecated
+
+ICart = IOrder
+
+
 # Adapter
 
 class IMember(Interface):

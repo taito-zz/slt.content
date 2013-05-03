@@ -45,12 +45,12 @@
   </action>
 
   <action
-    action_id="addresses"
+    action_id="address_listing"
     category="object"
     condition_expr=""
     i18n:attributes="title"
-    title="Addresses"
-    url_expr="string:${folder_url}/@@addresses"
+    title="Address Listing"
+    url_expr="string:${folder_url}/@@address-listing"
     visible="True">
     <permission value="Modify portal content"/>
   </action>

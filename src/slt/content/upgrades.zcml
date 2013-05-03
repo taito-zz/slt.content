@@ -83,4 +83,24 @@
     title="Reimport typinfo"
     />
 
+  <genericsetup:upgradeStep
+    description=""
+    destination="9"
+    handler="slt.content.upgrades.reimport_typeinfo"
+    profile="slt.content:default"
+    sortkey="1"
+    source="8"
+    title="Reimport typeinfo"
+    />
+
+  <genericsetup:upgradeStep
+    description=""
+    destination="9"
+    handler="slt.content.upgrades.provide_interfaces"
+    profile="slt.content:default"
+    sortkey="2"
+    source="8"
+    title="Provide interfaces"
+    />
+
 </configure>

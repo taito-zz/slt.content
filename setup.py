@@ -25,6 +25,7 @@ setup(
     install_requires=[
         'abita.utils',
         'collective.cart.shopping',
+        'plone.app.dexterity [relations]',
         'setuptools'],
     extras_require={'test': ['mock', 'plone.app.testing']},
     entry_points="""

@@ -25,3 +25,9 @@ class ArticleSchema(BaseArticleSchema):
         title=_(u'Feed Order'),
         description=_(u'Order number for top page feed.'),
         required=False)
+
+
+# Deprecated
+
+IArticleSchema = ArticleSchema
+IMemberArea = MemberAreaSchema
