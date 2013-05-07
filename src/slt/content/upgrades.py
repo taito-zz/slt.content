@@ -27,7 +27,9 @@ def provide_interfaces(context):
     from collective.base.interfaces import IAdapter
     from collective.cart.core.interfaces import IOrderContainer
     from collective.cart.shipping.interfaces import IOrderShippingMethod
+    from collective.cart.shopping.interfaces import IArticleContainer
     from collective.cart.shopping.interfaces import IOrderArticle
+    from plone.dexterity.utils import createContentInContainer
     from slt.content.interfaces import IArticle
     from slt.content.interfaces import IMemberArea
     from slt.content.interfaces import IOrder
@@ -68,81 +70,13 @@ def provide_interfaces(context):
         alsoProvides(obj, IMemberArea)
         modified(obj)
 
-#     # catalog = getToolByName(context, 'portal_catalog')
-#     # catalog.clearFindAndRebuild()
+    for brain in adapter.get_brains(portal_type=['collective.cart.shopping.ArticleContainer'], path=path):
+        obj = brain.getObject()
+        alsoProvides(obj, IArticleContainer)
+        modified(obj)
 
-
-#     intids = getUtility(IIntIds)
-#     res = []
-
-#     for brain in adapter.get_brains(portal_type=['collective.cart.core.Article'], path=path):
-#         obj = brain.getObject()
-#         obj.vat_rate = float(obj.vat_rate)
-#         alsoProvides(obj, IArticle)
-#         modified(obj)
-#         res.append(obj)
-
-#     for brain in adapter.get_brains(portal_type=['collective.cart.core.Article', 'collective.cart.shopping.ArticleContainer'], path=path):
-#         obj = brain.getObject()
-#         try:
-#             intids.unregister(obj)
-#         except KeyError:
-#             pass
-
-#         from_id = intids.register(obj)
-
-#     for obj in res:
-#         # intids.unregister(obj)
-#         # from_id = intids.register(obj)
-#         if getattr(obj, 'related_items', None):
-#             items = []
-#             for uuid in obj.related_items:
-#                 # to_id = intids.register(adapter.get_object(UID=uuid, path=path))
-#                 item_object = adapter.get_object(UID=uuid, path=path)
-#                 # intids.register(item_object)
-#                 to_id = intids.getId(item_object)
-#             # new_relationships.append(RelationValue(to_id))
-#         # super(RelationListDataManager, self).set(new_relationships)
-
-#                 rel = RelationValue(to_id)
-#                 rel.from_object = obj
-#                 items.append(rel)
-#             obj.relatedItems = items
-#     #         for item in obj.relatedItems:
-#     #             item._from_id = from_id
-#     #             index = obj.relatedItems.index(item)
-#     #             item.to_id = intids.register(res[obj][index])
-#     #             import pdb; pdb.set_trace()
-
-#         # modified(obj)
-#         obj.reindexObject()
-
-#     #     res.append(obj)
-
-#     # catalog = getToolByName(context, 'portal_catalog')
-#     # catalog.clearFindAndRebuild()
-
-#     # for obj in res:
-#     #     alsoProvides(obj, IArticle)
-#     #     modified(obj)
-
-# #
-# #     for brain in catalog(object_provides=[IArticle.__identifier__]):
-# #         obj = brain.getObject()
-# #         if hasattr(obj, 'relatedItems'):
-# #             res.update({obj: [item.to_object for item in obj.relatedItems]})
-
-# #     portal = getToolByName(context, 'portal_url').getPortalObject()
-# #     parent = aq_parent(portal)
-# #     parent.manage_renameObject('kauppa', 'luontokauppa')
-
-# #     for obj in res:
-# #         intids.unregister(obj)
-
-# #     for obj in res:
-# #         from_id = intids.register(obj)
-# #         if hasattr(obj, 'relatedItems'):
-# #             for item in obj.relatedItems:
-# #                 item._from_id = from_id
-# #                 index = obj.relatedItems.index(item)
-# #                 item.to_id = intids.register(res[obj][index])
+    portal = adapter.portal()
+    tilaukset = portal['tilaukset']
+    container = createContentInContainer(portal, 'collective.cart.core.OrderContainer', title='Tilaukset',
+        next_order_id=tilaukset.next_cart_id, checkConstraints=False)
+    modified(container)
