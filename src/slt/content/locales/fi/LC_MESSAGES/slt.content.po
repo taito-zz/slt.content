@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-03-20 11:35+0000\n"
+"POT-Creation-Date: 2013-05-07 18:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,11 +18,11 @@ msgstr ""
 msgid "Addresses"
 msgstr "Osoite"
 
-#: ./schema.py:12
+#: ./schema.py:11
 msgid "Default Billing Info"
 msgstr "Oletus laskutusosoite"
 
-#: ./schema.py:17
+#: ./schema.py:16
 msgid "Default Shipping Info"
 msgstr "Oletus toimitusosoite"
 

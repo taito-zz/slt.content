@@ -222,34 +222,34 @@ class TestCase(IntegrationTestCase):
         action = ctype.getActionObject('object/edit')
         self.assertEqual(action.permissions, (u'slt.content: Edit Member Area',))
 
-    def test_types__slt_content_MemberArea__action__address_listing__title(self):
+    def test_types__slt_content_MemberArea__action__addresses__title(self):
         types = getToolByName(self.portal, 'portal_types')
         ctype = types.getTypeInfo('slt.content.MemberArea')
-        action = ctype.getActionObject('object/address_listing')
-        self.assertEqual(action.title, 'Address Listing')
+        action = ctype.getActionObject('object/addresses')
+        self.assertEqual(action.title, 'Addresses')
 
-    def test_types__slt_content_MemberArea__action__address_listing__condition(self):
+    def test_types__slt_content_MemberArea__action__addresses__condition(self):
         types = getToolByName(self.portal, 'portal_types')
         ctype = types.getTypeInfo('slt.content.MemberArea')
-        action = ctype.getActionObject('object/address_listing')
+        action = ctype.getActionObject('object/addresses')
         self.assertEqual(action.condition, '')
 
-    def test_types__slt_content_MemberArea__action__address_listing__url_expr(self):
+    def test_types__slt_content_MemberArea__action__addresses__url_expr(self):
         types = getToolByName(self.portal, 'portal_types')
         ctype = types.getTypeInfo('slt.content.MemberArea')
-        action = ctype.getActionObject('object/address_listing')
+        action = ctype.getActionObject('object/addresses')
         self.assertEqual(action.getActionExpression(), 'string:${folder_url}/@@address-listing')
 
-    def test_types__slt_content_MemberArea__action__address_listing__visible(self):
+    def test_types__slt_content_MemberArea__action__addresses__visible(self):
         types = getToolByName(self.portal, 'portal_types')
         ctype = types.getTypeInfo('slt.content.MemberArea')
-        action = ctype.getActionObject('object/address_listing')
+        action = ctype.getActionObject('object/addresses')
         self.assertTrue(action.visible)
 
-    def test_types__slt_content_MemberArea__action__address_listing__permissions(self):
+    def test_types__slt_content_MemberArea__action__addresses__permissions(self):
         types = getToolByName(self.portal, 'portal_types')
         ctype = types.getTypeInfo('slt.content.MemberArea')
-        action = ctype.getActionObject('object/address_listing')
+        action = ctype.getActionObject('object/addresses')
         self.assertEqual(action.permissions, (u'Modify portal content',))
 
     def uninstall_package(self):

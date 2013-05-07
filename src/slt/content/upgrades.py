@@ -77,6 +77,9 @@ def provide_interfaces(context):
 
     portal = adapter.portal()
     tilaukset = portal['tilaukset']
-    container = createContentInContainer(portal, 'collective.cart.core.OrderContainer', title='Tilaukset',
-        next_order_id=tilaukset.next_cart_id, checkConstraints=False)
-    modified(container)
+    setattr(tilaukset, 'next_order_id', tilaukset.next_cart_id)
+
+    # import pdb; pdb.set_trace()
+    # container = createContentInContainer(portal, 'collective.cart.core.OrderContainer', title='Tilaukset',
+    #     next_order_id=tilaukset.next_cart_id, checkConstraints=False)
+    # modified(container)
