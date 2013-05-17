@@ -26,10 +26,10 @@ def provide_interfaces(context):
     """Provide interfaces"""
     from collective.base.interfaces import IAdapter
     from collective.cart.core.interfaces import IOrderContainer
+    from collective.cart.shipping.interfaces import ICustomerInfo
     from collective.cart.shipping.interfaces import IOrderShippingMethod
     from collective.cart.shopping.interfaces import IArticleContainer
     from collective.cart.shopping.interfaces import IOrderArticle
-    from plone.dexterity.utils import createContentInContainer
     from slt.content.interfaces import IArticle
     from slt.content.interfaces import IMemberArea
     from slt.content.interfaces import IOrder
@@ -73,6 +73,11 @@ def provide_interfaces(context):
     for brain in adapter.get_brains(portal_type=['collective.cart.shopping.ArticleContainer'], path=path):
         obj = brain.getObject()
         alsoProvides(obj, IArticleContainer)
+        modified(obj)
+
+    for brain in adapter.get_brains(portal_type=['collective.cart.shopping.CustomerInfo'], path=path):
+        obj = brain.getObject()
+        alsoProvides(obj, ICustomerInfo)
         modified(obj)
 
     portal = adapter.portal()
