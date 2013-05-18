@@ -26,9 +26,9 @@ def provide_interfaces(context):
     """Provide interfaces"""
     from collective.base.interfaces import IAdapter
     from collective.cart.core.interfaces import IOrderContainer
-    from collective.cart.shipping.interfaces import ICustomerInfo
     from collective.cart.shipping.interfaces import IOrderShippingMethod
     from collective.cart.shopping.interfaces import IArticleContainer
+    from collective.cart.shopping.interfaces import ICustomerInfo
     from collective.cart.shopping.interfaces import IOrderArticle
     from slt.content.interfaces import IArticle
     from slt.content.interfaces import IMemberArea
