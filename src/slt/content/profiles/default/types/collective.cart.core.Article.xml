@@ -11,4 +11,15 @@
   <property name="schema">slt.content.schema.ArticleSchema</property>
   <property name="klass">slt.content.content.Article</property>
 
+  <property name="behaviors">
+    <element value="plone.app.content.interfaces.INameFromTitle" />
+    <element value="plone.app.dexterity.behaviors.metadata.IDublinCore" />
+    <element value="collective.behavior.sku.interfaces.ISKU" />
+    <element value="collective.behavior.salable.interfaces.ISalable" />
+    <element value="slt.content.interfaces.IDiscountBehavior" />
+    <element value="collective.behavior.stock.interfaces.IStock" />
+    <element value="collective.behavior.vat.interfaces.IVAT" />
+    <element value="collective.behavior.size.interfaces.ISize" />
+  </property>
+
 </object>

@@ -2,6 +2,7 @@
   i18n_domain="slt.content"
   xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
   xmlns:i18n="http://namespaces.zope.org/i18n"
+  xmlns:plone="http://namespaces.plone.org/plone"
   xmlns="http://namespaces.zope.org/zope">
 
   <include package="collective.cart.shopping" />
@@ -28,6 +29,13 @@
   <utility
     component=".vocabulary.AddressVocabularyFactory"
     name="slt.content.address"
+    />
+
+  <plone:behavior
+    description="Adds price, termed and member discount fields"
+    factory=".behavior.DiscountBehavior"
+    provides=".interfaces.IDiscountBehavior"
+    title="Price and Discount"
     />
 
 </configure>

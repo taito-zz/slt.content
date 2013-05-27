@@ -24,10 +24,16 @@ class TestCase(IntegrationTestCase):
         catalog = getToolByName(self.portal, 'portal_catalog')
         self.assertIsInstance(catalog.Indexes['feed_order'], FieldIndex)
 
+    def test_memberdata_properties(self):
+        memberdata = getToolByName(self.portal, 'portal_memberdata')
+        ids = ['registration_number', 'allow_direct_marketing']
+        for pid in ids:
+            self.assertTrue(memberdata.hasProperty(pid))
+
     def test_metadata__version(self):
         setup = getToolByName(self.portal, 'portal_setup')
         self.assertEqual(
-            setup.getVersionForProfile('profile-slt.content:default'), u'9')
+            setup.getVersionForProfile('profile-slt.content:default'), u'10')
 
     def test_metadata__installed__collective_cart_shopping(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')
@@ -56,18 +62,20 @@ class TestCase(IntegrationTestCase):
         ctype = self.get_ctype('ShippingMethod')
         self.assertFalse(ctype.global_allow)
 
-    def test_types_collective_cart_core_Article__global_allow(self):
+    def test_types_collective_cart_core_Article(self):
         ctype = self.get_ctype('collective.cart.core.Article')
         self.assertTrue(ctype.global_allow)
-
-    def test_types_collective_cart_core_Article__schema(self):
-        ctype = self.get_ctype('collective.cart.core.Article')
         self.assertEqual(ctype.schema, 'slt.content.schema.ArticleSchema')
-
-    def test_types__collective_cart_core_Article__klass(self):
-        types = getToolByName(self.portal, 'portal_types')
-        ctype = types.getTypeInfo('collective.cart.core.Article')
         self.assertEqual(ctype.klass, 'slt.content.content.Article')
+        self.assertEqual(ctype.behaviors, (
+            'plone.app.content.interfaces.INameFromTitle',
+            'plone.app.dexterity.behaviors.metadata.IDublinCore',
+            'collective.behavior.sku.interfaces.ISKU',
+            'collective.behavior.salable.interfaces.ISalable',
+            'slt.content.interfaces.IDiscountBehavior',
+            'collective.behavior.stock.interfaces.IStock',
+            'collective.behavior.vat.interfaces.IVAT',
+            'collective.behavior.size.interfaces.ISize'))
 
     def test_types_collective_cart_shopping_Shop(self):
         ctype = self.get_ctype('collective.cart.shopping.Shop')

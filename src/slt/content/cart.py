@@ -1,6 +1,6 @@
 # Deprecated
 
-from slt.content.content import Order
+from slt.content.content import Order  # pragma: no cover
 
 
-Cart = Order
+Cart = Order  # pragma: no cover

@@ -7,6 +7,11 @@ This package contains content types for SLT shopping site.
 Changelog
 ---------
 
+0.13 (2013-05-27)
+=================
+
+- Added fields for registered member discount. [taito]
+
 0.12.4 (2013-05-18)
 ===================
 

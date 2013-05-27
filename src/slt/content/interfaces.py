@@ -1,6 +1,8 @@
+from collective.behavior.discount.interfaces import IDiscount
 from collective.cart.shopping.interfaces import IArticle as IBaseArticle
 from collective.cart.shopping.interfaces import IOrder as IBaseOrder
 from slt.content.schema import ArticleSchema
+from slt.content.schema import DiscountBehaviorSchema
 from slt.content.schema import MemberAreaSchema
 from zope.interface import Attribute
 from zope.interface import Interface
@@ -67,3 +69,9 @@ class IMember(Interface):
 
         :rtype: brains
         """
+
+
+# Behavior
+
+class IDiscountBehavior(DiscountBehaviorSchema, IDiscount):
+    """Behavior interface for DiscountBehavior"""

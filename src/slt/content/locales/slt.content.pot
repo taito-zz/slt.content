@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-05-17 15:36+0000\n"
+"POT-Creation-Date: 2013-05-27 06:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,15 +21,15 @@ msgstr ""
 msgid "Addresses"
 msgstr ""
 
-#: ./schema.py:11
+#: ./schema.py:12
 msgid "Default Billing Info"
 msgstr ""
 
-#: ./schema.py:16
+#: ./schema.py:17
 msgid "Default Shipping Info"
 msgstr ""
 
-#: ./schema.py:25
+#: ./schema.py:26
 msgid "Feed Order"
 msgstr ""
 
@@ -37,7 +37,25 @@ msgstr ""
 msgid "Member Area"
 msgstr ""
 
-#: ./schema.py:26
+#: ./schema.py:27
 msgid "Order number for top page feed."
+msgstr ""
+
+#: ./schema.py:35
+msgid "Registered Member Discount Enabled"
+msgstr ""
+
+#: ./schema.py:41
+msgid "Registered Member Discount Price"
+msgstr ""
+
+#. Default: "Check this option to enable discount for members who have registration numbers."
+#: ./schema.py:36
+msgid "registered_member_discount_enabled_description"
+msgstr ""
+
+#. Default: "Discount price for members who have registration numbers."
+#: ./schema.py:42
+msgid "registered_member_discount_price_description"
 msgstr ""
 

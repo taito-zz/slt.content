@@ -4,6 +4,12 @@
   xmlns="http://namespaces.zope.org/zope">
 
   <adapter
+    factory=".article.ArticleAdapter"
+    for="slt.content.interfaces.IArticle"
+    provides="collective.cart.shopping.interfaces.IArticleAdapter"
+    />
+
+  <adapter
     factory=".interface.OrderShoppingSite"
     for="slt.content.interfaces.IOrder"
     provides="collective.cart.shopping.interfaces.IShoppingSite"

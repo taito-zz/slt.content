@@ -27,7 +27,7 @@ setup(
         'collective.cart.shopping',
         'plone.app.dexterity [relations]',
         'setuptools'],
-    extras_require={'test': ['mock', 'plone.app.testing']},
+    extras_require={'test': ['hexagonit.testing']},
     entry_points="""
     # -*- Entry points: -*-
 
