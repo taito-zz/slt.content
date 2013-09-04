@@ -40,7 +40,7 @@ msgstr "Isonumerojärjestys."
 
 #: ./schema.py:35
 msgid "Registered Member Discount Enabled"
-msgstr "Jäsenasennus voimassa"
+msgstr "Jäsenalennus voimassa"
 
 #: ./schema.py:41
 msgid "Registered Member Discount Price"

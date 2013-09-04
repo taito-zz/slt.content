@@ -7,6 +7,12 @@ This package contains content types for SLT shopping site.
 Changelog
 ---------
 
+0.13.2 (2013-09-04)
+===================
+
+- Test with Plone-4.3.1. [taito]
+- Fix translation typo. [taito]
+
 0.13.1 (2013-05-27)
 ===================
 
