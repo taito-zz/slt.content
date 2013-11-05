@@ -26,14 +26,14 @@ class TestCase(IntegrationTestCase):
 
     def test_memberdata_properties(self):
         memberdata = getToolByName(self.portal, 'portal_memberdata')
-        ids = ['registration_number', 'allow_direct_marketing']
+        ids = ['birth_date', 'registration_number', 'allow_direct_marketing']
         for pid in ids:
             self.assertTrue(memberdata.hasProperty(pid))
 
     def test_metadata__version(self):
         setup = getToolByName(self.portal, 'portal_setup')
         self.assertEqual(
-            setup.getVersionForProfile('profile-slt.content:default'), u'10')
+            setup.getVersionForProfile('profile-slt.content:default'), u'11')
 
     def test_metadata__installed__collective_cart_shopping(self):
         installer = getToolByName(self.portal, 'portal_quickinstaller')

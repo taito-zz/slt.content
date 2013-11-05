@@ -7,21 +7,27 @@ class TestCase(IntegrationTestCase):
     """TestCase for upgrade steps"""
 
     @mock.patch('slt.content.upgrades.getToolByName')
-    @mock.patch('slt.content.upgrades.reimport_profile')
-    def test_reimport_catalog(self, reimport_profile, getToolByName):
+    def test_reimport_catalog(self, getToolByName):
         from slt.content.upgrades import reimport_catalog
-        reimport_catalog(self.portal)
-        reimport_profile.assert_called_with(self.portal, 'profile-slt.content:default', 'catalog')
+        setup = mock.Mock()
+        reimport_catalog(setup)
+        setup.runImportStepFromProfile.assert_called_with('profile-slt.content:default', 'catalog', run_dependencies=False, purge_old=False)
         self.assertTrue(getToolByName().clearFindAndRebuild.called)
 
-    @mock.patch('slt.content.upgrades.reimport_profile')
-    def test_reimport_rolemap(self, reimport_profile):
-        from slt.content.upgrades import reimport_rolemap
-        reimport_rolemap(self.portal)
-        reimport_profile.assert_called_with(self.portal, 'profile-slt.content:default', 'rolemap')
+    def test_reimport_memberdata_properties(self):
+        from slt.content.upgrades import reimport_memberdata_properties
+        setup = mock.Mock()
+        reimport_memberdata_properties(setup)
+        setup.runImportStepFromProfile.assert_called_with('profile-slt.content:default', 'memberdata-properties', run_dependencies=False, purge_old=False)
 
-    @mock.patch('slt.content.upgrades.reimport_profile')
-    def test_reimport_typeinfo(self, reimport_profile):
+    def test_reimport_rolemap(self):
+        from slt.content.upgrades import reimport_rolemap
+        setup = mock.Mock()
+        reimport_rolemap(setup)
+        setup.runImportStepFromProfile.assert_called_with('profile-slt.content:default', 'rolemap', run_dependencies=False, purge_old=False)
+
+    def test_reimport_typeinfo(self):
         from slt.content.upgrades import reimport_typeinfo
-        reimport_typeinfo(self.portal)
-        reimport_profile.assert_called_with(self.portal, 'profile-slt.content:default', 'typeinfo')
+        setup = mock.Mock()
+        reimport_typeinfo(setup)
+        setup.runImportStepFromProfile.assert_called_with('profile-slt.content:default', 'typeinfo', run_dependencies=False, purge_old=False)

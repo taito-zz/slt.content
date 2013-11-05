@@ -93,16 +93,6 @@
     title="Reimport typeinfo"
     />
 
-  <!-- <genericsetup:upgradeStep
-    description=""
-    destination="9"
-    handler="slt.content.upgrades.provide_interfaces"
-    profile="slt.content:default"
-    sortkey="2"
-    source="8"
-    title="Provide interfaces"
-    /> -->
-
   <genericsetup:upgradeStep
     description=""
     destination="10"
@@ -111,6 +101,16 @@
     sortkey="1"
     source="9"
     title="Reimport typeinfo"
+    />
+
+  <genericsetup:upgradeStep
+    description=""
+    destination="11"
+    handler="slt.content.upgrades.reimport_memberdata_properties"
+    profile="slt.content:default"
+    sortkey="1"
+    source="10"
+    title="Reimport memberdata properties"
     />
 
 </configure>
