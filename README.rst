@@ -7,7 +7,7 @@ This package contains content types for SLT shopping site.
 Changelog
 ---------
 
-0.14 (2013-11-xx)
+0.14 (2013-11-06)
 =================
 
 - Add property: birth_date to memberdata properties. [taito]

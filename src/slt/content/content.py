@@ -25,3 +25,4 @@ class Order(BaseOrder):
     implements(IOrder)
 
     registration_number = None
+    birth_date = None

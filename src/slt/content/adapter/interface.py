@@ -4,10 +4,13 @@ from collective.cart.core.interfaces import IShoppingSiteRoot
 from collective.cart.shopping.adapter.interface import ShoppingSite as BaseShoppingSite
 from collective.cart.shopping.interfaces import ICustomerInfo
 from collective.cart.shopping.interfaces import IShoppingSite
+from slt.content import _
 from slt.content.interfaces import IMember
 from slt.content.interfaces import IOrder
 from zope.component import adapts
 from zope.interface import implements
+
+import dateutil
 
 
 class OrderShoppingSite(BaseShoppingSite):
@@ -38,8 +41,29 @@ class RootShoppingSite(BaseShoppingSite):
         """
         order = super(RootShoppingSite, self).create_order(order_id=order_id)
         if order is not None:
-            order.registration_number = self.cart().get('registration_number')
+            cart = self.cart()
+            order.registration_number = cart.get('registration_number')
+            order.birth_date = cart.get('birth_date')
         return order
+
+    def update_address(self, name, data):
+        """Update address of cart and return message if there are one
+
+        :param name: Name of address, such as billing and shipping.
+        :type name: str
+
+        :param data: Form data.
+        :type data: dict
+
+        :rtype: unicode or None
+        """
+        message = super(RootShoppingSite, self).update_address(name, data)
+        if message is None and name == 'billing':
+            birth_date = data.get('birth_date')
+            try:
+                self.update_cart('birth_date', dateutil.parser.parse(birth_date).date().isoformat())
+            except ValueError:
+                return _(u'birth_date_warning', default=u'Input birth date with format: YYYY-MM-DD like 1990-01-31')
 
 
 class Member(Adapter):

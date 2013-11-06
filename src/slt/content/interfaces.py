@@ -28,6 +28,7 @@ class IOrder(IBaseOrder):
     """Interface for content type: collective.cart.core.Order"""
 
     registration_number = Attribute('Registration number for the purchaser')
+    birth_date = Attribute('Birth date of the purchaser')
 
 
 # Deprecated
