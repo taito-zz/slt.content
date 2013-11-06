@@ -28,3 +28,22 @@ class RootShoppingSiteTestCase(IntegrationTestCase):
         self.create_content('collective.cart.core.OrderContainer')
         cart.return_value = {'articles': {'UUID1': mock.MagicMock()}, 'registration_number': '3'}
         self.assertEqual(IShoppingSite(self.portal).create_order(order_id='3').registration_number, '3')
+
+    @mock.patch('collective.cart.shopping.adapter.interface.ShoppingSite.update_address')
+    def test_update_address(self, update_address):
+        from zope.interface import alsoProvides
+        alsoProvides(self.portal, IShoppingSiteRoot)
+
+        adapter = IShoppingSite(self.portal)
+        data = {}
+
+        self.assertIsNone(adapter.update_address('billing', data))
+
+        update_address.return_value = None
+        self.assertIsNone(adapter.update_address('billing', data))
+
+        data = {'birth_date': 'BDATE'}
+        self.assertEqual(adapter.update_address('billing', data), u'birth_date_warning')
+
+        data = {'birth_date': '1990-01-31'}
+        self.assertIsNone(adapter.update_address('billing', data))

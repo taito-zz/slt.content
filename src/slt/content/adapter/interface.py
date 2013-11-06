@@ -59,7 +59,7 @@ class RootShoppingSite(BaseShoppingSite):
         """
         message = super(RootShoppingSite, self).update_address(name, data)
         if message is None and name == 'billing':
-            birth_date = data.get('birth_date')
+            birth_date = data.get('birth_date', '')
             try:
                 self.update_cart('birth_date', dateutil.parser.parse(birth_date).date().isoformat())
             except ValueError:
