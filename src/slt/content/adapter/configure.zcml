@@ -27,4 +27,9 @@
     provides="slt.content.interfaces.IMember"
     />
 
+  <adapter
+    factory=".content_listing_object.FeedToShopTopContentListingObject"
+    for="slt.content.interfaces.IArticle"
+    />
+
 </configure>
