@@ -28,7 +28,7 @@
     />
 
   <adapter
-    factory=".content_listing_object.FeedToShopTopContentListingObject"
+    factory=".content_listing_object.ArticleContentListingObject"
     for="slt.content.interfaces.IArticle"
     />
 
