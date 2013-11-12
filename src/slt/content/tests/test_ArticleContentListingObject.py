@@ -24,7 +24,7 @@ class ArticleContentListingObjectTestCase(IntegrationTestCase):
     def test_feed_order(self):
         article = self.create_content('collective.cart.core.Article')
         instance = IContentListingObject(article)
-        self.assertIsNone(instance.feed_order())
+        self.assertEqual(instance.feed_order(), u'Edit')
 
         instance._realobject.feed_order = 3
         self.assertEqual(instance.feed_order(), 3)

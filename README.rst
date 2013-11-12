@@ -7,7 +7,7 @@ This package contains content types for SLT shopping site.
 Changelog
 ---------
 
-0.15 (2013-11-xx)
+0.15 (2013-11-12)
 =================
 
 - Add method: ``feed_order`` to ``ArticleContentListingObject``. [taito]

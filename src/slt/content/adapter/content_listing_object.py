@@ -1,6 +1,10 @@
 from collective.cart.shopping.adapter.content_listing_object import ArticleContentListingObject as BaseArticleContentListingObject
 from slt.content.interfaces import IArticle
 from zope.component import adapts
+from zope.i18nmessageid import MessageFactory
+
+
+PMF = MessageFactory("plone")
 
 
 class ArticleContentListingObject(BaseArticleContentListingObject):
@@ -12,6 +16,6 @@ class ArticleContentListingObject(BaseArticleContentListingObject):
     def feed_order(self):
         """Return feed order
 
-        :rtype: int
+        :rtype: int or str
         """
-        return self._realobject.feed_order
+        return self._realobject.feed_order or PMF(u'Edit')
