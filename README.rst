@@ -7,6 +7,11 @@ This package contains content types for SLT shopping site.
 Changelog
 ---------
 
+0.16 (2014-01-08)
+=================
+
+- Use Finnish format for birth date. [taito]
+
 0.15 (2013-11-12)
 =================
 

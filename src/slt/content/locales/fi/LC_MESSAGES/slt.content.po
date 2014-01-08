@@ -49,7 +49,7 @@ msgstr "Jäsenalennushinta"
 #. Default: "Input birth date with format: YYYY-MM-DD like 1990-01-31"
 #: ./adapter/interface.py:68
 msgid "birth_date_warning"
-msgstr "Syötä syntymäaikasi formatilla: VVVV-KK-PP esim. 1990-01-31"
+msgstr "Syötä syntymäaikasi formatilla: PP.KK.VVVV esim. 31.01.1990"
 
 #. Default: "Check this option to enable discount for members who have registration numbers."
 #: ./schema.py:36

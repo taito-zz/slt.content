@@ -40,10 +40,13 @@ class RootShoppingSiteTestCase(IntegrationTestCase):
         self.assertIsNone(adapter.update_address('billing', data))
 
         update_address.return_value = None
-        self.assertIsNone(adapter.update_address('billing', data))
+        self.assertEqual(adapter.update_address('billing', data), u'birth_date_warning')
 
         data = {'birth_date': 'BDATE'}
         self.assertEqual(adapter.update_address('billing', data), u'birth_date_warning')
 
         data = {'birth_date': '1990-01-31'}
+        self.assertEqual(adapter.update_address('billing', data), u'birth_date_warning')
+
+        data = {'birth_date': '31.01.1990'}
         self.assertIsNone(adapter.update_address('billing', data))

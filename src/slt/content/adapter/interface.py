@@ -4,13 +4,12 @@ from collective.cart.core.interfaces import IShoppingSiteRoot
 from collective.cart.shopping.adapter.interface import ShoppingSite as BaseShoppingSite
 from collective.cart.shopping.interfaces import ICustomerInfo
 from collective.cart.shopping.interfaces import IShoppingSite
+from datetime import datetime
 from slt.content import _
 from slt.content.interfaces import IMember
 from slt.content.interfaces import IOrder
 from zope.component import adapts
 from zope.interface import implements
-
-import dateutil
 
 
 class OrderShoppingSite(BaseShoppingSite):
@@ -61,7 +60,7 @@ class RootShoppingSite(BaseShoppingSite):
         if message is None and name == 'billing':
             birth_date = data.get('birth_date', '')
             try:
-                self.update_cart('birth_date', dateutil.parser.parse(birth_date).date().isoformat())
+                self.update_cart('birth_date', datetime.strptime(birth_date.strip(), '%d.%m.%Y').date().isoformat())
             except ValueError:
                 return _(u'birth_date_warning', default=u'Input birth date with format: YYYY-MM-DD like 1990-01-31')
 
