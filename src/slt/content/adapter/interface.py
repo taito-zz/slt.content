@@ -60,7 +60,11 @@ class RootShoppingSite(BaseShoppingSite):
         if message is None and name == 'billing':
             birth_date = data.get('birth_date', '')
             try:
-                self.update_cart('birth_date', datetime.strptime(birth_date.strip(), '%d.%m.%Y').date().isoformat())
+                birth_date = datetime.strptime(birth_date.strip(), '%d.%m.%Y').date()
+                if datetime.now().year - birth_date.year >= 110:
+                    return _(u'birth_date_warning_too_old', default=u'The year of the birth date is too old.')
+                else:
+                    self.update_cart('birth_date', birth_date.isoformat())
             except ValueError:
                 return _(u'birth_date_warning', default=u'Input birth date with format: YYYY-MM-DD like 1990-01-31')
 

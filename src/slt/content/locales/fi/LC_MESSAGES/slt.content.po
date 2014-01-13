@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-11-06 07:24+0000\n"
+"POT-Creation-Date: 2014-01-13 23:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,9 +47,14 @@ msgid "Registered Member Discount Price"
 msgstr "Jäsenalennushinta"
 
 #. Default: "Input birth date with format: YYYY-MM-DD like 1990-01-31"
-#: ./adapter/interface.py:68
+#: ./adapter/interface.py:69
 msgid "birth_date_warning"
 msgstr "Syötä syntymäaikasi formatilla: PP.KK.VVVV esim. 31.01.1990"
+
+#. Default: "The year of the birth date is too old."
+#: ./adapter/interface.py:65
+msgid "birth_date_warning_too_old"
+msgstr "Syntymävuosi on liian vanha."
 
 #. Default: "Check this option to enable discount for members who have registration numbers."
 #: ./schema.py:36

@@ -7,6 +7,11 @@ This package contains content types for SLT shopping site.
 Changelog
 ---------
 
+0.17 (2014-01-14)
+=================
+
+- Do not use too old birth year. [taito]
+
 0.16 (2014-01-08)
 =================
 
