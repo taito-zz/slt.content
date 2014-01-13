@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='slt.content',
-    version='0.16',
+    version='0.17',
     description="Provides content types for SLT shopping site.",
     long_description=open("README.rst").read(),
     classifiers=[
