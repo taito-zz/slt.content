@@ -113,4 +113,14 @@
     title="Reimport memberdata properties"
     />
 
+  <genericsetup:upgradeStep
+    description=""
+    destination="12"
+    handler="slt.content.upgrades.reimport_typeinfo"
+    profile="slt.content:default"
+    sortkey="1"
+    source="11"
+    title="Reimport typeinfo"
+    />
+
 </configure>

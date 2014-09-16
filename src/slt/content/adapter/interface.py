@@ -57,7 +57,7 @@ class RootShoppingSite(BaseShoppingSite):
         :rtype: unicode or None
         """
         message = super(RootShoppingSite, self).update_address(name, data)
-        if message is None and name == 'billing':
+        if message is None and name == 'billing' and data.get('billing_organization', '') == '':
             birth_date = data.get('birth_date', '')
             try:
                 birth_date = datetime.strptime(birth_date.strip(), '%d.%m.%Y').date()

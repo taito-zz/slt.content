@@ -7,6 +7,11 @@ This package contains content types for SLT shopping site.
 Changelog
 ---------
 
+0.17.1 (2014-09-16)
+===================
+
+- Fix not to use birth date when organization is filled. [taito]
+
 0.17 (2014-01-14)
 =================
 

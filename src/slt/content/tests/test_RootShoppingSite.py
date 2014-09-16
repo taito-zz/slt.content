@@ -50,3 +50,6 @@ class RootShoppingSiteTestCase(IntegrationTestCase):
 
         data = {'birth_date': '31.01.1990'}
         self.assertIsNone(adapter.update_address('billing', data))
+
+        data = {'birth_date': '31.01.1890'}
+        self.assertEqual(adapter.update_address('billing', data), u'birth_date_warning_too_old')
