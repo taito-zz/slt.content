@@ -10,6 +10,12 @@ This package contains content types for SLT shopping site.
 Changelog
 ---------
 
+0.18 (2015-07-24)
+=================
+
+- Add dependency to Products.CMFPlacefulWorkflow for test. [taito]
+- Add attributes: ``use_verkkolasku``, ``verkkolasku_operator``, ``verkkolasku_account`` to order. [taito]
+
 0.17.1 (2014-09-16)
 ===================
 
