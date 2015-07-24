@@ -27,7 +27,7 @@ setup(
         'collective.cart.shopping',
         'plone.app.dexterity [relations]',
         'setuptools'],
-    extras_require={'test': ['hexagonit.testing']},
+    extras_require={'test': ['Products.CMFPlacefulWorkflow', 'hexagonit.testing']},
     entry_points="""
     # -*- Entry points: -*-
 

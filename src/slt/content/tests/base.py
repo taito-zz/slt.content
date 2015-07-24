@@ -18,6 +18,8 @@ class SltContentLayer(PloneSandboxLayer):
         z2.installProduct(app, 'Products.ATCountryWidget')
 
         # Load ZCML
+        import Products.CMFPlacefulWorkflow
+        self.loadZCML(package=Products.CMFPlacefulWorkflow)
         import slt.content
         self.loadZCML(package=slt.content)
 
