@@ -26,3 +26,6 @@ class Order(BaseOrder):
 
     registration_number = None
     birth_date = None
+    use_verkkolasku = False
+    verkkolasku_operator = None
+    verkkolasku_account = None

@@ -41,8 +41,11 @@ class RootShoppingSite(BaseShoppingSite):
         order = super(RootShoppingSite, self).create_order(order_id=order_id)
         if order is not None:
             cart = self.cart()
-            order.registration_number = cart.get('registration_number')
-            order.birth_date = cart.get('birth_date')
+            for name in IOrder.names():
+                default = getattr(order, name, None)
+                setattr(order, name, cart.get(name, default))
+            # order.registration_number = cart.get('registration_number')
+            # order.birth_date = cart.get('birth_date')
         return order
 
     def update_address(self, name, data):

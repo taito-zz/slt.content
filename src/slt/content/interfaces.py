@@ -29,6 +29,9 @@ class IOrder(IBaseOrder):
 
     registration_number = Attribute('Registration number for the purchaser')
     birth_date = Attribute('Birth date of the purchaser')
+    use_verkkolasku = Attribute('True if use Verkkolasku else False')
+    verkkolasku_operator = Attribute('Verkkomaksu operator')
+    verkkolasku_account = Attribute('Account of intermediator')
 
 
 # Deprecated
