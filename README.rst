@@ -4,6 +4,9 @@ slt.content
 
 This package contains content types for SLT shopping site.
 
+.. image:: https://secure.travis-ci.org/taito/slt.content.png
+    :target: http://travis-ci.org/taito/slt.content
+
 Changelog
 ---------
 
