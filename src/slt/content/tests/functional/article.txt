@@ -44,9 +44,12 @@ Go to Ärticle1::
 
     >>> print browser.bycss('#money')
     --- 1 ---
-    <section id="money"><section id="price" class="gross">12.40 &#8364;</section><section id="vat-rate">
+    <section id="money">
+    <section id="price" class="gross">12.40 &#8364;</section>
+    <section id="vat-rate">
     Including VAT: 24%
-    </section></section>
+    </section>
+    </section>
 
     >>> print browser.bycss('#discount')
 
@@ -62,9 +65,12 @@ Log out and go to Ärticle1::
     >>> browser.open('/article1')
     >>> print browser.bycss('#money')
     --- 1 ---
-    <section id="money"><section id="price" class="gross">12.40 &#8364;</section><section id="vat-rate">
+    <section id="money">
+    <section id="price" class="gross">12.40 &#8364;</section>
+    <section id="vat-rate">
     Including VAT: 24%
-    </section></section>
+    </section>
+    </section>
 
     >>> print browser.bycss('#discount')
 
@@ -74,9 +80,12 @@ Log in as member1 and go to Ärticle1::
     >>> browser.open('/article1')
     >>> print browser.bycss('#money')
     --- 1 ---
-    <section id="money"><section id="price" class="gross">12.40 &#8364;</section><section id="vat-rate">
+    <section id="money">
+    <section id="price" class="gross">12.40 &#8364;</section>
+    <section id="vat-rate">
     Including VAT: 24%
-    </section></section>
+    </section>
+    </section>
 
     >>> print browser.bycss('#discount')
 
@@ -93,13 +102,17 @@ Log out and apply termed discount::
     >>> browser.getControl(name="form.buttons.save").click()
     >>> print browser.bycss('#money')
     --- 1 ---
-    <section id="money"><section id="price" class="gross">10.00 &#8364;</section><section id="vat-rate">
+    <section id="money">
+    <section id="price" class="gross">10.00 &#8364;</section>
+    <section id="vat-rate">
     Including VAT: 24%
-    </section></section>
+    </section>
+    </section>
 
     >>> print browser.bycss('#discount')
     --- 1 ---
-    <section id="discount"><p id="discount-message">
+    <section id="discount">
+    <p id="discount-message">
     (Discount valid till ...)
     </p>
     <p id="normal-price">
@@ -113,13 +126,17 @@ Log out and go to Ärticle1::
     >>> browser.open('/article1')
     >>> print browser.bycss('#money')
     --- 1 ---
-    <section id="money"><section id="price" class="gross">10.00 &#8364;</section><section id="vat-rate">
+    <section id="money">
+    <section id="price" class="gross">10.00 &#8364;</section>
+    <section id="vat-rate">
     Including VAT: 24%
-    </section></section>
+    </section>
+    </section>
 
     >>> print browser.bycss('#discount')
     --- 1 ---
-    <section id="discount"><p id="discount-message">
+    <section id="discount">
+    <p id="discount-message">
     (Discount valid till ...)
     </p>
     <p id="normal-price">
@@ -133,13 +150,17 @@ Log in as member1 and go to Ärticle1::
     >>> browser.open('/article1')
     >>> print browser.bycss('#money')
     --- 1 ---
-    <section id="money"><section id="price" class="gross">10.00 &#8364;</section><section id="vat-rate">
+    <section id="money">
+    <section id="price" class="gross">10.00 &#8364;</section>
+    <section id="vat-rate">
     Including VAT: 24%
-    </section></section>
+    </section>
+    </section>
 
     >>> print browser.bycss('#discount')
     --- 1 ---
-    <section id="discount"><p id="discount-message">
+    <section id="discount">
+    <p id="discount-message">
     (Discount valid till ...)
     </p>
     <p id="normal-price">
@@ -157,13 +178,17 @@ Log out and apply registered member discount::
     >>> browser.getControl(name="form.buttons.save").click()
     >>> print browser.bycss('#money')
     --- 1 ---
-    <section id="money"><section id="price" class="gross">10.00 &#8364;</section><section id="vat-rate">
+    <section id="money">
+    <section id="price" class="gross">10.00 &#8364;</section>
+    <section id="vat-rate">
     Including VAT: 24%
-    </section></section>
+    </section>
+    </section>
 
     >>> print browser.bycss('#discount')
     --- 1 ---
-    <section id="discount"><p id="discount-message">
+    <section id="discount">
+    <p id="discount-message">
     (Discount valid till ...)
     </p>
     <p id="normal-price">
@@ -177,13 +202,17 @@ Log out and go to Ärticle1::
     >>> browser.open('/article1')
     >>> print browser.bycss('#money')
     --- 1 ---
-    <section id="money"><section id="price" class="gross">10.00 &#8364;</section><section id="vat-rate">
+    <section id="money">
+    <section id="price" class="gross">10.00 &#8364;</section>
+    <section id="vat-rate">
     Including VAT: 24%
-    </section></section>
+    </section>
+    </section>
 
     >>> print browser.bycss('#discount')
     --- 1 ---
-    <section id="discount"><p id="discount-message">
+    <section id="discount">
+    <p id="discount-message">
     (Discount valid till ...)
     </p>
     <p id="normal-price">
@@ -197,13 +226,17 @@ Log in as member1 and go to Ärticle1::
     >>> browser.open('/article1')
     >>> print browser.bycss('#money')
     --- 1 ---
-    <section id="money"><section id="price" class="gross">10.00 &#8364;</section><section id="vat-rate">
+    <section id="money">
+    <section id="price" class="gross">10.00 &#8364;</section>
+    <section id="vat-rate">
     Including VAT: 24%
-    </section></section>
+    </section>
+    </section>
 
     >>> print browser.bycss('#discount')
     --- 1 ---
-    <section id="discount"><p id="discount-message">
+    <section id="discount">
+    <p id="discount-message">
     (Discount valid till ...)
     </p>
     <p id="normal-price">
@@ -220,13 +253,17 @@ Log out and change registered member discount::
     >>> browser.getControl(name="form.buttons.save").click()
     >>> print browser.bycss('#money')
     --- 1 ---
-    <section id="money"><section id="price" class="gross">10.00 &#8364;</section><section id="vat-rate">
+    <section id="money">
+    <section id="price" class="gross">10.00 &#8364;</section>
+    <section id="vat-rate">
     Including VAT: 24%
-    </section></section>
+    </section>
+    </section>
 
     >>> print browser.bycss('#discount')
     --- 1 ---
-    <section id="discount"><p id="discount-message">
+    <section id="discount">
+    <p id="discount-message">
     (Discount valid till ...)
     </p>
     <p id="normal-price">
@@ -240,13 +277,17 @@ Log out and go to Ärticle1::
     >>> browser.open('/article1')
     >>> print browser.bycss('#money')
     --- 1 ---
-    <section id="money"><section id="price" class="gross">10.00 &#8364;</section><section id="vat-rate">
+    <section id="money">
+    <section id="price" class="gross">10.00 &#8364;</section>
+    <section id="vat-rate">
     Including VAT: 24%
-    </section></section>
+    </section>
+    </section>
 
     >>> print browser.bycss('#discount')
     --- 1 ---
-    <section id="discount"><p id="discount-message">
+    <section id="discount">
+    <p id="discount-message">
     (Discount valid till ...)
     </p>
     <p id="normal-price">
@@ -260,13 +301,17 @@ Log in as member1 and go to Ärticle1::
     >>> browser.open('/article1')
     >>> print browser.bycss('#money')
     --- 1 ---
-    <section id="money"><section id="price" class="gross">10.00 &#8364;</section><section id="vat-rate">
+    <section id="money">
+    <section id="price" class="gross">10.00 &#8364;</section>
+    <section id="vat-rate">
     Including VAT: 24%
-    </section></section>
+    </section>
+    </section>
 
     >>> print browser.bycss('#discount')
     --- 1 ---
-    <section id="discount"><p id="discount-message">
+    <section id="discount">
+    <p id="discount-message">
     (Discount valid till ...)
     </p>
     <p id="normal-price">
@@ -280,13 +325,17 @@ Log out and log in as member2 who has registration number, and go to Ärticle1::
     >>> browser.open('/article1')
     >>> print browser.bycss('#money')
     --- 1 ---
-    <section id="money"><section id="price" class="gross">9.00 &#8364;</section><section id="vat-rate">
+    <section id="money">
+    <section id="price" class="gross">9.00 &#8364;</section>
+    <section id="vat-rate">
     Including VAT: 24%
-    </section></section>
+    </section>
+    </section>
 
     >>> print browser.bycss('#discount')
     --- 1 ---
-    <section id="discount"><p id="normal-price">
+    <section id="discount">
+    <p id="normal-price">
     Normal Price: 12.40 &#8364;
     </p>
     </section>

@@ -1,5 +1,4 @@
 from Products.CMFCore.utils import getToolByName
-from abita.utils.utils import get_roles
 from slt.content.tests.base import IntegrationTestCase
 
 
@@ -41,7 +40,7 @@ class TestCase(IntegrationTestCase):
 
     def test_rolemap__slt_content_Edit_Member_Area__rolesOfPermission(self):
         permission = "slt.content: Edit Member Area"
-        self.assertEqual(get_roles(self.portal, permission), [
+        self.assertEqual(self.get_roles(self.portal, permission), [
             'Manager',
             'Site Administrator'])
 

@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='slt.content',
-    version='0.18',
+    version='0.18.1',
     description="Provides content types for SLT shopping site.",
     long_description=open("README.rst").read(),
     classifiers=[
@@ -23,7 +23,6 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'abita.utils',
         'collective.cart.shopping',
         'plone.app.dexterity [relations]',
         'setuptools'],
